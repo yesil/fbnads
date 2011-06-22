@@ -1,0 +1,15 @@
+{
+  "name": "commercial ads blocker for facebook",
+  "version": "0.1.2",
+  "description": "Removes facebook commercial ads at the right side of pages",
+  "background_page": "background.html",
+  "permissions" : ["tabs","http://*.facebook.com/","https://*.facebook.com/"],
+   "icons": {"16": "16.png", "128": "128.png"},
+   "content_scripts": [
+    {
+      "matches": ["http://*.facebook.com/*","https://*.facebook.com/*"],
+      "js": ["jquery.min.js", "content_script.js"],
+	  "run_at": "document_end"
+    }
+  ]
+}
