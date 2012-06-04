@@ -1,25 +1,11 @@
-var doIt = function(){
-	var pagelet_ego_pane = $('#pagelet_ego_pane')[0];
-	if(pagelet_ego_pane) {
-		var parent = pagelet_ego_pane.firstChild;
-		if(parent){
-			var children = parent.children;
-			for(var i= 0; i < children.length; i++)
-			{
-				var child = children[i];
-				if(child && child.className.indexOf('egoOrganicColumn')==-1) parent.removeChild(child);
-			}
-		}
-	}
-	var adsContainer = $('.adsContainer')[0];
-	if(adsContainer){
-		var clearfix = adsContainer.firstChild;
-		if(clearfix) {
-			adsContainer.removeChild(clearfix);
-		}
-	}
-}
-$(function() {
-	doIt();
-	$('#globalContainer').bind('DOMSubtreeModified', doIt);
-});
+var head = document.getElementsByTagName("head").item(0);
+var style = document.createElement("style");
+head.appendChild(style);
+var styles = document.getElementsByTagName("style");
+style = styles.item(styles.length-1);
+style.innerText+="#pagelet_ego_pane_w .ego_column {display:none;}";
+style.innerText+="#pagelet_ego_pane .ego_column {display:none;}";
+style.innerText+="#pagelet_ego_pane .ego_column {display:none;}";
+style.innerText+=".fbTimelineSideAds .ego_column {display:none;}";
+style.innerText+=".egoOrganicColumn {display:block !important;}";
+
